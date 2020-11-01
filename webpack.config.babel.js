@@ -1,6 +1,7 @@
 // @ts-check
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 const isProduction = process.env.NODE_ENV === 'production';
 console.log('isProduction', isProduction);
@@ -23,6 +24,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
+    new FaviconsWebpackPlugin('./assets/favicon.ico'),
   ],
   module: {
     rules: [
@@ -30,6 +32,12 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.ico$/,
+        use: [
+          { loader: 'file-loader' },
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
