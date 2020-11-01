@@ -16,3 +16,7 @@ $ make install
 $ make start
 # open http://localhost:5000
 ```
+
+## View deployment
+
+[https://vivalasvegan-slack.herokuapp.com/](https://vivalasvegan-slack.herokuapp.com/)
